@@ -1,0 +1,74 @@
+1. HANDLING API KEYS:
+
+a) Create a .env file in your project root:
+NIM_API_KEY=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
+HUGGINGFACE_API_TOKEN=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
+
+b) Modify your main Python file to use environment variables:
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+NIM_API_KEY = os.getenv("NIM_API_KEY")
+HUGGINGFACE_API_TOKEN = os.getenv("HUGGINGFACE_API_TOKEN")
+```
+
+2. GITHUB SETUP:
+
+a) Create a .gitignore file with the following content:
+```
+.env
+__pycache__/
+*.pyc
+generated_audio.flac
+.DS_Store
+```
+
+b) Required files to push to GitHub:
+- main.py (your main application file)
+- requirements.txt (create this)
+- utils/custom.py (your custom utilities)
+- audio-img/logo.jpg
+- README.md (create this)
+
+c) Create requirements.txt with dependencies:
+```
+streamlit
+requests
+python-dotenv
+transformers
+torch
+pillow
+```
+
+d) Git commands to push:
+```bash
+git init
+git add .
+git commit -m "Initial commit"
+git branch -M main
+git remote add origin YOUR_GITHUB_REPO_URL
+git push -u origin main
+```
+
+3. STREAMLIT SHARE DEPLOYMENT:
+
+a) Go to share.streamlit.io
+b) Sign in with GitHub
+c) Click "New app"
+d) Select your repository and branch (main)
+e) Set the following:
+   - Main file path: main.py
+   - Python version: 3.9
+
+f) Add secrets in Streamlit Share:
+   - Go to Advanced Settings > Secrets
+   - Add the following key-value pairs:
+     ```
+     NIM_API_KEY = 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
+     HUGGINGFACE_API_TOKEN = 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
+     ```
+
+g) Click "Deploy"
