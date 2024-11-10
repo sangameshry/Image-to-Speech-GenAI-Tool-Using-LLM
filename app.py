@@ -10,8 +10,8 @@ import json
 from utils.custom import css_code
 
 # Define your NIM API key directly in the code
-NIM_API_KEY = st.secrets['NIM_API_KEY']
-HUGGINGFACE_API_TOKEN = st.secrets['HUGGINGFACE_API_TOKEN']
+NIM_API_KEY = "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"
+HUGGINGFACE_API_TOKEN = "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"
 
 
 def progress_bar(amount_of_time: int) -> Any:
